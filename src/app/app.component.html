@@ -3,9 +3,105 @@
   <label>PRASANTH</label>
   <span class="example-spacer"></span>
   <div class="nav-icons d-none d-md-flex">
-    <button mat-button class="button" routerLink="/about"><mat-icon>home</mat-icon> Home</button>
-      <button mat-button class="button" routerLink="/about"><mat-icon>person</mat-icon>  About</button>
-      <button mat-button class="button"><mat-icon> call</mat-icon>Contact</button>
+    <button mat-button routerLink="/about"><mat-icon>home</mat-icon> Home</button>
+    <button mat-button routerLink="/about"><mat-icon>person</mat-icon> About</button>
+    <button mat-button><mat-icon> call</mat-icon>Contact</button>
   </div>
 </mat-toolbar>
+<div class="fluid">
+  <mat-card>
+    <div class="socailmedia mat-elevation-z8">
+      <a href="https://github.com/prasanth052" target="_blank" class="mt-4">
+        <button mat-icon-button matTooltip="Github" matTooltipPosition="right">
+          <i class="fab fa-github"></i>
+        </button>
+      </a>
+      <a href="mailto:kprasanth286@gmail.com" target="_blank">
+        <button mat-icon-button matTooltip="Mail" matTooltipPosition="right">
+          <i class="fas fa-envelope"></i>
+        </button>
+      </a>
+      <button mat-icon-button matTooltip="Twitter" matTooltipPosition="right">
+        <i class="fab fa-twitter"></i>
+      </button>
+      <button mat-icon-button matTooltip="Instagram" matTooltipPosition="right">
+        <i class="fab fa-instagram"></i>
+      </button>
+      <a href="https://www.linkedin.com/in/prasanth-k-a457311ba/" target="_blank" class="mb-4">
+        <button mat-icon-button matTooltip="Linkedin" matTooltipPosition="right">
+          <i class="fab fa-linkedin"></i>
+        </button>
+      </a>
+    </div>
+    <mat-card-content>
+      <div style="text-align: center">
+        <div class="hero-section text-center">
+          <h1 class="hero-title">HEY, I'M PRASANTH KUPPUSAMY</h1>
+          <p class="hero-subtitle">
+            A Result-Oriented Web Developer building and managing Websites and Web Applications that leads to the
+            success of the
+            overall product
+          </p>
+        </div>
+        <button mat-raised-button type="button" class="button" style="background-color: #003566; color: white">
+          PROJECTS
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="about">
+  <div class="card-title">
+    <h6 class="abouttitle">About me</h6>
+    <p class="about-subtitle">
+      Here you will find more information about me, what I do, and my current skills mostly in terms of programming and
+      technology.
+    </p>
+  </div>
+  <div class="row" style="max-width: 100%;">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+      <h5>Get To Know Me !</h5>
+      <p class="text" [innerHTML]="text"></p>
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+      <h5 style="color: #2e2a2a;">My Skills</h5>
+      <div class="skills m-2">
+        <button type="button" class="btn btn-secondary">Angular</button>
+        <button type="button" class="btn btn-secondary">Typescript</button>
+        <button type="button" class="btn btn-secondary">MSSql</button>
+        <button type="button" class="btn btn-secondary">NodeJs</button>
+        <button type="button" class="btn btn-secondary">HTML</button>
+        <button type="button" class="btn btn-secondary">CSS</button>
+        <button type="button" class="btn btn-secondary">JavaScript</button>
+        <button type="button" class="btn btn-secondary">Github</button>
+        <button type="button" class="btn btn-secondary">Mangodb</button>
+        <button type="button" class="btn btn-secondary">HTML</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Chat -->
+<div class="chat-container">
+  <button #chatBtn id="chat-btn">💬 Chat</button>
+  <div #chatBox id="chat-box" class="hidden">
+    <div class="chat-header">
+      <span>Live Chat</span>
+      <button #closeChat id="close-chat">✖</button>
+    </div>
+    <div class="chat-body">
+      <p>Hello! How can I help you?</p>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Type a message..." />
+      <button id="send-btn" (click)="msgSend()">
+        <i class="fas fa-paper-plane"></i> <!-- Send Icon -->
+      </button>
+    </div>
+  </div>
+</div>
+
+
 <router-outlet></router-outlet>

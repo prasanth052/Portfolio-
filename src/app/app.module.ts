@@ -12,16 +12,23 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import {MatCardModule} from  '@angular/material/card'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon'
+import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatDividerModule}  from '@angular/material/divider'
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,BrowserAnimationsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     MatButtonModule,
-    MatSidenavModule,MatIconModule,
-    MatToolbarModule,MatSidenavContainer,
+    MatSidenavModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavContainer,
     MatCardModule,
+    MatTooltipModule,
+    MatDividerModule,
   ],
   providers: [
     provideClientHydration(),
