@@ -1,0 +1,173 @@
+.about {
+  padding-top: 3%;
+  // background-image: url('/assets/dash2.png');
+  // background-position: center;
+  // background-repeat: repeat;
+  // background-size: 75%;
+  background-color: whitesmoke;
+  min-height: 100vh;
+  width: 100%;
+  background-attachment: fixed;
+
+}
+
+.abouttitle {
+  padding-top: 3%;
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-weight: bolder;
+  letter-spacing: 7px;
+  color: black;
+}
+
+.about-subtitle {
+  text-align: center;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  color: black;
+}
+
+h5 {
+  padding: 2%;
+  letter-spacing: 2px;
+  margin-top: 4rem;
+  font-weight: 500;
+}
+
+.text {
+  text-align: justify;
+  padding-left: 2%;
+  letter-spacing: 2px;
+  line-height: 30px;
+}
+
+.btn {
+  width: 8rem;
+}
+.scribble {
+  position: relative;
+  background-image: none;
+  background-color: transparent;
+  color: #ff9400;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    height: 30%;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='247' height='22' fill='none'%3E%3Cmask id='a' width='246' height='23' x='0' y='1' maskUnits='userSpaceOnUse' style='mask-type:alpha'%3E%3Cpath fill='%23D9D9D9' d='M0 1h246v23H0z'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%2300a661' d='M.225 13.987c40.77-3.247 81.218-6.304 122.486-5.61 40.217.68 80.07 3.493 119.823 8.284 4.828.577 4.966-4.727.193-5.301-40.597-4.886-82.029-7.082-123.059-6.436-39.896.627-80.713 2.548-119.53 8.822-.233.04-.132.263.087.25v-.009z'/%3E%3C/g%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-size: 95%;
+    width: 100%;
+    background-image: linear-gradient(to right,
+        currentcolor 40%,
+        transparent 50%);
+    background-repeat: no-repeat;
+    animation: background-size-300 0.4s 1.5s ease-in both;
+    background-size: 300%
+  }
+}
+
+
+// --------------------------------------------SKILLS-----------------------
+.container {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  background: #ececec;
+  margin: 0 15px;
+  padding: 10px 20px;
+  border-radius: 7px;
+}
+
+.container .skill-box {
+  width: 100%;
+  margin: 25px 0;
+}
+
+.skill-box .title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.skill-box .skill-bar {
+  height: 8px;
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 6px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.skill-bar .skill-per {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 90%;
+  border-radius: 6px;
+  background: #4070f4;
+  animation: progress 0.4s ease-in-out forwards;
+  opacity: 0;
+}
+
+
+
+
+@keyframes progress {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.skill-per {
+  position: relative;
+  display: inline-block;
+}
+
+.skill-per .tooltip {
+  position: absolute;
+  right: -14px;
+  top: -28px;
+  font-size: 9px;
+  font-weight: 500;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 3px;
+  background: #4070f4;
+  z-index: 10;
+  /* Ensure tooltip is above other elements */
+  display: block;
+  white-space: nowrap;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  /* Push arrow slightly up */
+  height: 10px;
+  width: 10px;
+  background-color: #4070f4;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: 9;
+  /* Ensure it's above other elements */
+  border-radius: 2px;
+  /* Optional: for a smoother look */
+}
+.mat-badge-content {
+  position: absolute !important;
+  left: 30% !important;
+  transform: translateY( -20px) !important;
+  white-space: nowrap;
+}

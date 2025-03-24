@@ -1,11 +1,7 @@
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { animate,state,style,transition,trigger,} from '@angular/animations';
+import {  AfterViewInit,Component,ElementRef, Inject, OnInit,PLATFORM_ID,ViewChild,} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -19,15 +15,24 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
     ]),
   ],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
+  isBrowser: boolean;
+
+  ngOnInit() {
+    if (this.isBrowser) {
+      this.profileImage = localStorage.getItem('profileImage');
+    }
+  }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: object,
+    private toastr: ToastrService
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
   title = 'Prasanth';
   isSidenavOpen = true;
   sidenavClass = 'lg';
-  text =
-    "I'm a  <b style='color:brown;'> Fullstack Web Developer </b> building and managing the Front-end of  Websites and " +
-    ' Web Applications that leads to the success of the overall product. Check out some of my work in the Projects section .  <br> ' +
-    'I also like sharing content related to the stuff that I have learned over the years in Web Development so it can help other people of the Dev Community. <br> ' +
-    " I'm open to Job opportunities where I can contribute, learn and grow. If you have a good opportunity that matches my skills and experience then don't hesitate to contact me. ";
+
   @ViewChild('chatBox') chatBox!: ElementRef;
   @ViewChild('chatBtn') chatBtn!: ElementRef;
   @ViewChild('closeChat') closeChat!: ElementRef;
@@ -54,16 +59,64 @@ export class AppComponent implements AfterViewInit {
     if (this.sendBtn) {
       this.sendBtn.nativeElement.addEventListener('click', () => {
         const inputValue = this.chatInput?.nativeElement.value.trim();
+        console.log(inputValue);
+
         if (inputValue) {
           const messageElement = document.createElement('p');
+          console.log(messageElement);
           messageElement.textContent = inputValue;
+          console.log(messageElement);
           this.chatBody?.nativeElement.appendChild(messageElement);
           this.chatInput.nativeElement.value = ''; // Clear input after sending
         }
       });
     }
   }
-  msgSend(){
-    
+  profileImage: any;
+  triggerFileInput(): void {
+    if (this.isBrowser) {
+      const fileInput = document.getElementById(
+        'fileInput'
+      ) as HTMLInputElement;
+      if (fileInput) {
+        fileInput.click();
+      }
+    }
+  }
+  fileError: string | null = null;
+  onFileSelected(event: Event): void {
+    if (this.isBrowser) {
+      const input = event.target as HTMLInputElement;
+      if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const allowedFormats = [
+          'image/jpeg',
+          'image/png',
+          'image/gif',
+          'image/webp',
+        ];
+
+        if (!allowedFormats.includes(file.type)) {
+          this.toastr.error(
+            'Invalid file format. Please select a JPG, PNG, GIF, or WEBP image'
+          );
+          return;
+        }
+
+        this.fileError = null;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          this.profileImage = e.target?.result as string;
+          localStorage.setItem('profileImage', this.profileImage);
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  }
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }

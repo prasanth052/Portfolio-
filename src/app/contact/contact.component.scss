@@ -1,0 +1,113 @@
+.container-fluid {
+  padding-top: 5%;
+  background-color: whitesmoke;
+  min-height: 100vh;
+  width: 100%;
+  background-attachment: fixed;
+
+}
+
+.form-check-input {
+  width: 20px;
+  height: 20px;
+  margin-right: 4%;
+}
+
+.form-check-label {
+  margin-right: 10%;
+  margin-top: 4px;
+}
+
+.head {
+  padding: 2%;
+  margin: 2% 10% 0% 10%;
+  border: .5px solid silver;
+}
+
+.col-6,
+.subhead {
+  padding-bottom: 2%;
+}
+
+.checkbox {
+  max-width: 300px;
+  background-color: white;
+  padding: 10px;
+  gap: 10px;
+  border: .5px solid rgb(223, 222, 222);
+  border-radius: 5px;
+}
+
+button {
+  width: 9em;
+  height: 3em;
+  border-radius: 30em;
+  font-size: 15px;
+  font-family: inherit;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background-color: #64f191;
+  box-shadow: 6px 6px 12px #c5c5c5,
+    -6px -6px 12px #ffffff;
+}
+
+button::before {
+  content: '';
+  width: 0;
+  height: 3em;
+  border-radius: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #d8630f 0%, #f97947 100%);
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+}
+
+button:hover::before {
+  width: 9em;
+}
+
+.submitbtn {
+  margin-top: 2%;
+  margin-left: 45%;
+}
+
+.scribble {
+  position: relative;
+  background-image: none;
+  background-color: transparent;
+  color: #ff9400;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    height: 30%;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='247' height='22' fill='none'%3E%3Cmask id='a' width='246' height='23' x='0' y='1' maskUnits='userSpaceOnUse' style='mask-type:alpha'%3E%3Cpath fill='%23D9D9D9' d='M0 1h246v23H0z'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%2300a661' d='M.225 13.987c40.77-3.247 81.218-6.304 122.486-5.61 40.217.68 80.07 3.493 119.823 8.284 4.828.577 4.966-4.727.193-5.301-40.597-4.886-82.029-7.082-123.059-6.436-39.896.627-80.713 2.548-119.53 8.822-.233.04-.132.263.087.25v-.009z'/%3E%3C/g%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-size: 95%;
+    width: 100%;
+    background-image: linear-gradient(to right,
+        currentcolor 40%,
+        transparent 50%);
+    background-repeat: no-repeat;
+    animation: background-size-300 0.4s 1.5s ease-in both;
+    background-size: 300%
+  }
+}
+
+.title {
+  // padding-bottom: 1%;
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-weight: bolder;
+  letter-spacing: 7px;
+  color: black;
+}
