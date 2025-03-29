@@ -1,0 +1,27 @@
+<div class="container" *ngIf="data.Msg =='Login'">
+    <mat-icon class="close-btn" mat-dialog-close>close</mat-icon>
+  <div class="heading">Sign In</div>
+  <form action="" class="form">
+    <input required="" class="input" type="email" name="email" id="email" placeholder="E-mail">
+    <input required="" class="input" type="password" name="password" id="password" placeholder="Password">
+    <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
+    <input class="login-button" type="submit" value="Sign In">
+
+  </form>
+  <p class="p">Don't have an account? <span class="span" (click)="signup()">Sign Up</span></p>
+  <span class="agreement"><a href="#">Learn user licence agreement</a></span>
+</div>
+
+<div class="SignUp" *ngIf="data.Msg =='SignUp'">
+  <mat-icon class="close-btn" mat-dialog-close>close</mat-icon>
+  <div class="heading">SignUp</div>
+  <form action="" class="form">
+      <input required="" class="input" type="text" name="text" id="text" placeholder="UserName">
+    <input required="" class="input" type="email" name="email" id="email" placeholder="E-mail">
+    <input required="" class="input" type="password" name="password" id="password" placeholder="Password">
+    <input required="" class="input" type="number" name="number" id="number" placeholder="Mobile Number">
+    <input class="login-button" type="submit" value="Sign Up">
+
+  </form>
+  <span class="agreement"><a href="#">Learn user licence agreement</a></span>
+</div>

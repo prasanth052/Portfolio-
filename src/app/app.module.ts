@@ -19,15 +19,17 @@ import { AboutComponent } from './about/about.component';
 import { ChatComponent } from './chat/chat.component';
 import { ContactComponent } from './contact/contact.component'
 import { MatBadgeModule } from '@angular/material/badge';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from '@angular/material/dialog';
 @NgModule({
-  declarations: [AppComponent, ProjectComponent, AboutComponent, ChatComponent, ContactComponent],
+  declarations: [AppComponent, ProjectComponent, AboutComponent, ChatComponent, ContactComponent, DialogBoxComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule, HttpClientModule,
     MatButtonModule,MatBadgeModule, MatSidenavModule,  MatIconModule,
     MatToolbarModule, MatSidenavContainer,MatCardModule, MatTooltipModule,
-    MatDividerModule,
+    MatDividerModule,MatDialogActions,MatDialogClose,MatDialogContent,MatDialogTitle,
      ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-top-left',

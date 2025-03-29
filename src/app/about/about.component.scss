@@ -82,6 +82,11 @@ h5 {
   margin: 0 15px;
   padding: 10px 20px;
   border-radius: 7px;
+  animation: conatiner 5ms timing-function delay iteration-count direction fill-mode;
+}
+
+@keyframes conatiner{
+
 }
 
 .container .skill-box {
@@ -108,10 +113,9 @@ h5 {
   position: relative;
   display: block;
   height: 100%;
-  width: 90%;
   border-radius: 6px;
   background: #4070f4;
-  animation: progress 0.4s ease-in-out forwards;
+  animation: progress 2s ease forwards;
   opacity: 0;
 }
 
@@ -171,3 +175,6 @@ h5 {
   transform: translateY( -20px) !important;
   white-space: nowrap;
 }
+
+
+

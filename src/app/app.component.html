@@ -9,6 +9,7 @@
     <label>PRASANTH</label>
     <span class="example-spacer"></span>
     <div class="nav-icons d-none d-md-flex">
+      <button mat-button (click)="login()"><mat-icon> account_circle</mat-icon>Login</button>
       <button mat-button (click)="scrollToSection('home')"><mat-icon>home</mat-icon> Home</button>
       <button mat-button (click)="scrollToSection('about')"><mat-icon>person</mat-icon> About</button>
       <button mat-button (click)="scrollToSection('contact')"><mat-icon> call</mat-icon>Contact</button>
@@ -40,7 +41,7 @@
         </a>
       </div>
       <mat-card-content>
-        <div style="text-align: center">
+        <!-- <div style="text-align: center">
           <div class="hero-section text-center">
             <h1 class="hero-title">HEY, I'M PRASANTH KUPPUSAMY
               <p class="hero-subtitle">
@@ -50,7 +51,19 @@
               </p>
             </h1>
           </div>
+        </div> -->
+        <!-- From Uiverse.io by kennyotsu -->
+        <div class="card">
+          <p>Prasanth Kuppusamy</p>
+          <div class="loader">
+            <!-- <label>I am </label> -->
+            <div class="hero">
+              <h1>I'm <span #typedText class="typed-text"></span><span class="cursor">|</span></h1>
+            </div>
+
+          </div>
         </div>
+
       </mat-card-content>
     </mat-card>
   </div>

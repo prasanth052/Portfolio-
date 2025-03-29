@@ -1,7 +1,24 @@
-import { animate,state,style,transition,trigger,} from '@angular/animations';
-import {  AfterViewInit,Component,ElementRef, Inject, OnInit,PLATFORM_ID,ViewChild,} from '@angular/core';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  inject,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+  ViewChild,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +39,9 @@ export class AppComponent implements AfterViewInit, OnInit {
     if (this.isBrowser) {
       this.profileImage = localStorage.getItem('profileImage');
     }
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => this.typeEffect(), 500);
+    }
   }
   constructor(
     @Inject(PLATFORM_ID) private platformId: object,
@@ -39,6 +59,20 @@ export class AppComponent implements AfterViewInit, OnInit {
   @ViewChild('chatInput') chatInput!: ElementRef;
   @ViewChild('chatBody') chatBody!: ElementRef;
   @ViewChild('sendBtn') sendBtn!: ElementRef;
+  @ViewChild('typedText', { static: true }) typedText!: ElementRef;
+
+  words: string[] = [
+    'Angular Developer',
+    'Freelancer',
+    'Web Developer',
+    'Full Stack Developer',
+  ];
+  wordIndex = 0;
+  charIndex = 0;
+  isDeleting = false;
+  typingSpeed = 150; // Typing speed in ms
+  deletingSpeed = 100; // Deleting speed in ms
+  pauseTime = 2000; // Pause before deleting
   ngAfterViewInit() {
     if (this.chatBtn) {
       this.chatBtn.nativeElement.addEventListener('click', () => {
@@ -118,5 +152,51 @@ export class AppComponent implements AfterViewInit, OnInit {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }
+  timeoutId: any;
+  typeEffect() {
+    if (!this.typedText) return;
+
+    const currentWord = this.words[this.wordIndex];
+    const typedTextElement = this.typedText.nativeElement;
+
+    if (this.isDeleting) {
+      typedTextElement.textContent = currentWord.substring(0, this.charIndex--);
+    } else {
+      typedTextElement.textContent = currentWord.substring(0, this.charIndex++);
+    }
+
+    let speed = this.isDeleting ? this.deletingSpeed : this.typingSpeed;
+
+    if (!this.isDeleting && this.charIndex === currentWord.length + 1) {
+      this.isDeleting = true;
+      setTimeout(() => this.typeEffect(), this.pauseTime); // Pause before deleting
+      return;
+    }
+
+    if (this.isDeleting && this.charIndex === 0) {
+      this.isDeleting = false;
+      this.wordIndex = (this.wordIndex + 1) % this.words.length;
+      speed = this.typingSpeed; // Reset speed for next word
+    }
+
+    // **✅ Key Fix: No slowdown on the last letter**
+    if (!this.isDeleting && this.charIndex === currentWord.length - 1) {
+      speed = this.typingSpeed / 0; // Ensure last letter types at normal speed
+    }
+
+    // Ensure smooth timing and prevent unwanted speed-ups
+    clearTimeout(this.timeoutId);
+    this.timeoutId = setTimeout(() => this.typeEffect(), speed);
+  }
+  readonly dialog = inject(MatDialog);
+  dialogRef!: MatDialogRef<DialogBoxComponent>;
+  login() {
+    this.dialog.open(DialogBoxComponent, {
+      disableClose: true,
+      width: 'auto',
+      height: 'auto',
+      data: { Msg: 'Login' },
+    });
   }
 }

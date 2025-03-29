@@ -74,6 +74,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          
           "configurations": {
             "production": {
               "buildTarget": "Prasanth:build:production"
@@ -90,6 +91,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
