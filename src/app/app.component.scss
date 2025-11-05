@@ -1,9 +1,7 @@
 .home {
-  // background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
   background: url("/assets/dash2.png");
   background-position: center;
   background-repeat: no-repeat;
-  // background-size: 7%;
   background-color: #fff;
   min-height: 50rem;
   width: 100%;
@@ -175,7 +173,7 @@ mat-card {
 
 
 .socailmedia button:nth-child(3):hover {
-  background-color: #1DA1F2;
+  background-color: #333;
   color: white;
 }
 
@@ -189,12 +187,10 @@ mat-card {
   background-color: #0077b5;
   color: white;
 }
-
-
-
-
-
-
+.socailmedia a:nth-child(6) button:hover {
+  background-color: #FF0000;
+  color: white;
+}
 .card {
   letter-spacing: 5px;
   background-color: rgb(221, 218, 218);

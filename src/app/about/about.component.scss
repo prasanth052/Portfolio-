@@ -1,9 +1,5 @@
 .about {
   padding-top: 3%;
-  // background-image: url('/assets/dash2.png');
-  // background-position: center;
-  // background-repeat: repeat;
-  // background-size: 75%;
   background-color: whitesmoke;
   min-height: 100vh;
   width: 100%;
@@ -115,7 +111,7 @@ h5 {
   height: 100%;
   border-radius: 6px;
   background: #4070f4;
-  animation: progress 2s ease forwards;
+  animation: progress 3s ease forwards;
   opacity: 0;
 }
 

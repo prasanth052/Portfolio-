@@ -15,8 +15,8 @@ export class AboutComponent implements OnInit {
     { name: 'API', percentage: 85 },
     { name: 'HTML', percentage: 100 },
     { name: 'CSS', percentage: 95 },
-    { name: 'NgRX', percentage: 60 },
-    { name: 'RsJx', percentage: 60 },
+    { name: 'NgRX', percentage: 80 },
+    { name: 'RsJx', percentage: 80 },
   ];
 
   skillRows: any[] = [];

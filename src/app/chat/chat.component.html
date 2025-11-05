@@ -1,17 +1,21 @@
 <div class="chat-container">
-  <button #chatBtn id="chat-btn">💬 Chat</button>
-  <div #chatBox id="chat-box" class="hidden">
+  <button id="chat-btn" (click)="toggleChat()" [class.hidden]="!isChatbtnClose">💬 Chat</button>
+  <div id="chat-box" [class.hidden]="!isChatOpen">
     <div class="chat-header">
       <span>Live Chat</span>
-      <button #closeChat id="close-chat">✖</button>
+      <button id="close-chat" (click)="CloseChat()">✖</button>
     </div>
     <div class="chat-body">
-      <p>Hello! How can I help you?</p>
+      <span >Welcome</span>
+      <div *ngFor="let msg of messages" class="chat-msg">
+        <p>{{ msg }}</p>
+      </div>
     </div>
     <div class="chat-footer">
-      <input type="text" id="chat-input" placeholder="Type a message..." />
-      <button id="send-btn" >
-        <i class="fas fa-paper-plane" ></i> <!-- Send Icon -->
+      <input type="text" id="chat-input" placeholder="Type a message..." [(ngModel)]="inputmessage"
+        (keyup.enter)="sendMessage()" />
+      <button id="send-btn" (click)="sendMessage()">
+        <i class="fas fa-paper-plane"></i>
       </button>
     </div>
   </div>

@@ -170,22 +170,19 @@ export class AppComponent implements AfterViewInit, OnInit {
 
     if (!this.isDeleting && this.charIndex === currentWord.length + 1) {
       this.isDeleting = true;
-      setTimeout(() => this.typeEffect(), this.pauseTime); // Pause before deleting
+      setTimeout(() => this.typeEffect(), this.pauseTime);
       return;
     }
 
     if (this.isDeleting && this.charIndex === 0) {
       this.isDeleting = false;
       this.wordIndex = (this.wordIndex + 1) % this.words.length;
-      speed = this.typingSpeed; // Reset speed for next word
+      speed = this.typingSpeed;
     }
-
-    // **✅ Key Fix: No slowdown on the last letter**
     if (!this.isDeleting && this.charIndex === currentWord.length - 1) {
-      speed = this.typingSpeed / 0; // Ensure last letter types at normal speed
+      speed = this.typingSpeed / 0;
     }
 
-    // Ensure smooth timing and prevent unwanted speed-ups
     clearTimeout(this.timeoutId);
     this.timeoutId = setTimeout(() => this.typeEffect(), speed);
   }
@@ -198,5 +195,8 @@ export class AppComponent implements AfterViewInit, OnInit {
       height: 'auto',
       data: { Msg: 'Login' },
     });
+  }
+  ResumeDownload(){
+    window.open('assets/Resume_Prasanth.pdf');
   }
 }

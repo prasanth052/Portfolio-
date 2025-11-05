@@ -1,5 +1,5 @@
-// ------------------Chat
-/* Chat Container */
+// // ------------------Chat
+// /* Chat Container */
 .chat-container {
   position: fixed;
   bottom: 40px;
@@ -31,7 +31,7 @@
   transform: scale(0.95);
 }
 
-/* Chat Box */
+// /* Chat Box */
 #chat-box {
   width: 300px;
   background: white;
@@ -41,13 +41,12 @@
   position: absolute;
   bottom: 60px;
   right: 0;
-  display: none;
   overflow: hidden;
-  animation: slideUp 0.3s ease-out;
+  animation: slideUp 1s ease-out;
   zoom: 1;
 }
 
-/* Chat Slide Animation */
+// /* Chat Slide Animation */
 @keyframes slideUp {
   from {
     transform: translateY(3%);
@@ -62,14 +61,14 @@
 
 /* Chat Header */
 .chat-header {
-  background: #007bff;
-  color: white;
+  background: #82868b;
+  color: rgb(7, 7, 7);
   padding: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .chat-header button {
@@ -93,7 +92,7 @@
   background: #e9ecef;
   padding: 8px 12px;
   border-radius: 12px;
-  max-width: 80%;
+  width: fit-content;
   margin: 5px 0;
 }
 
@@ -128,4 +127,9 @@
 /* Send Button Hover */
 #send-btn:hover {
   background: #0056b3;
+}
+
+
+.hidden {
+  display: none;
 }
